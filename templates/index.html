@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body style=" font-family:arial ;margin:20px;">
+        <h1>Candlestick Screener</h1>
+        
+        <form>
+            <select name="patterns">
+                
+                {% for k,v in patterns.items %}
+                   <option value="{{k}}">{{v}}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="scan"/>
+            
+        </form>
+        {% for stock,i in stocks.items %}
+        
+         {{stock}}
+         {{i}}
+        {% endfor %}
+        
+
+    </body>
+</html>
+

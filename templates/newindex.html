@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {font-family:arial ;margin:20px;}
+            td {padding: 5px;}
+            .bullish {background: green; color: white;}
+            .bearish {background: red; color: white;}
+
+        </style>
+    </head>
+    <body style=" font-family:arial ;margin:20px;">
+        <h1>Candlestick Screener</h1>
+        <form>
+            <select name="patterns">
+                {% for i,v in patterns.items %}
+                <option value="{{i}}">{{v}}</option>
+                {% endfor %}
+                
+                
+            </select>
+            <input type="submit" value="scan"/>
+            
+        </form>
+         <br>
+         <table>
+            <tr>
+                <th>
+                    symbol
+                </th>
+                
+                <th>
+                    company_name
+                </th>
+                
+                <th>
+                    signal
+                </th>
+            </tr>
+        {% for stock,k in stocks.items %}
+        <tr>
+            <td>
+                {{stock}}
+    
+            </td>
+            {% for i,j in k.items %}
+              {% if j %}
+            <td class="{{j}}">
+                {{j}}
+
+            </td>
+            {% endif %}
+        {% endfor %}     
+        {% endfor %}
+        </tr>
+         </table>
+         
+         
+        
+    </body>
+</html>
+
